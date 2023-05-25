@@ -52,7 +52,7 @@ def naive_bayes(table, evidence_row, target):
 
 def metrics(zip_list):
   assert type(zip_list)==list, "Input must be a list"
-  assert all(isinstance(item, tuple) and len(item) == 2 for item in zip_list), "Input must be a zipped list of pairs"
+  assert all([isinstance(item, list) for item in zip_list]), "Input must be a list of lists"
   for pair in zip_list:
     assert (isinstance(pair, list) and len(pair) == 2), "Input must be a zipped list"
     assert type(pair[0])==int and type(pair[1])==int, "Each value in the pair must be an int"
@@ -75,5 +75,3 @@ def metrics(zip_list):
   recall = (tp/(tp+fn)) if (tp+fn)>0 else 0
   f1 = 2*(precision*recall)/(precision+recall) if (precision+recall)>0 else 0
   return {'Precision': precision, 'Recall': recall, 'F1': f1, 'Accuracy': accuracy}
-
-
