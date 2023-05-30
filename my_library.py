@@ -58,7 +58,7 @@ def metrics(zip_list):
   assert all([isinstance(item, list) for item in zip_list]), "Input must be a list of lists"
   for pair in zip_list:
     assert (isinstance(pair, list) and len(pair) == 2), "Input must be a zipped list"
-    assert (type(pair[0])==float or type(pair[0])==int) and (type(pair[1])==float or type(pair[1])==int), "Each value in the pair must be an int"
+    assert all([all([isinstance(x,(int,float)) for x in y]) for y in zip_list]), "Each value in the pair must be an int"
     assert pair[0]>=0 and pair[1]>=0, "Each value in the pair must be >=0"
   tn=0
   fn=0
