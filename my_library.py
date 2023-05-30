@@ -1,3 +1,6 @@
+from sklearn.ensemble import RandomForestClassifier
+
+
 def test_load():
   return 'loaded'
 
