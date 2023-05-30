@@ -83,8 +83,6 @@ def metrics(zip_list):
 def try_archs(full_table, target, architectures, thresholds):
   train_table, test_table = up_train_test_split(full_table, target, .4)
 
-  #copy paste code here
-  target = 'adopted'
   #loop through your architecutes and get results
   for arch in architectures:
     all_results = up_neural_net(train_table, test_table, arch, target)
