@@ -100,3 +100,14 @@ def try_archs(full_table, target, architectures, thresholds):
     print(f'Architecture: {arch}')
     print(up_metrics_table(all_mets))
   return None  #main use is to print out threshold tables, not return anything useful.
+
+
+def feed_forward(net_weights, inputs):
+  # slide left to right
+  for layer in net_weights:
+    output = [node(inputs, node_weights) for node_weights in layer]
+    inputs = output  #the trick - make input the output of previous layer
+  result = output[0]
+
+  return result
+  
